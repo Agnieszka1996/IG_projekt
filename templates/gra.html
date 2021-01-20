@@ -10,7 +10,7 @@
 <div style="height: 200px; background: #cccccc">Twoje karty:</div>
 
 {% for karta in karty_gracza %}
-    <li>{{ karta }}</li>
+<li>{{ karta }}</li>
 {% endfor %}
 <div style="height: 100px;">
     <div style="width: 50px; height: 90px; border: 1px solid #000000; margin: 0 auto;"></div>
@@ -22,18 +22,29 @@
 
 <div style="height: 200px; background: #cccccc">Liczba kart na ręce:</div>
 <form method="POST" action="">
-<fieldset class="form-group">
-    <div class="form-group">
-        {{ form.karta(class="form-control form-control-lg is-invalid") }}
-    </div>
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
         <div class="form-group">
-        {{ form.potwierdz(class="btn btn-outline-info") }}
-    </div>
-</fieldset>
+            {{ form.karta(class="form-control form-control-lg is-invalid") }}
+        </div>
+        <div class="form-group">
+            {{ form.potwierdz(class="btn btn-outline-info") }}
+        </div>
+    </fieldset>
 
 </form>
 
-    <div><a href="gra">DALEJ</a></div>
-
+<div><a href="gra">DALEJ</a></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"
+        integrity="sha512-+l9L4lMTFNy3dEglQpprf7jQBhQsQ3/WvOnjaN/+/L4i0jOstgScV0q2TjfvRF4V+ZePMDuZYIQtg5T4MKr+MQ=="
+        crossorigin="anonymous"></script>
+<!-- Custom SocketIO JS -->
+<script src="{{ url_for('static', filename='scripts/socketio2.js') }}"></script>
+<!--<script type="text/javascript" charset="utf-8">-->
+<!--    var socket = io();-->
+<!--    socket.on('connect', function() {-->
+<!--        socket.emit('my event', {data: 'I\'m connected!'});-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>
