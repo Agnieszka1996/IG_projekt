@@ -43,12 +43,13 @@ def gra():
         # return redirect(url_for("koniec_gry"))
     return render_template("gra.jinja2", karty_gracza_1=karty_gracza_1, karty_gracza_2=karty_gracza_2, wartownik = wartownik, form=form)
 
-@app.route('/pobierz_karte')
+@app.route('/pobierz_karte/<str>')
 def pobierz_karte(self, karta):
-    karty_gracza = gra.gracze[gra.turn].karty_gracza
+    karty_gracza_1 = gra.gracze[0].karty_gracza
+    karty_gracza_2 = gra.gracze[1].karty_gracza
     form = WybierzKarte()
     self.karty_gracza.append(karta)
-    return render_template("gra.jinja2", karty_gracza=karty_gracza, form=form)
+    return render_template("gra.jinja2", karty_gracza_1=karty_gracza_1, karty_gracza_2=karty_gracza_2, form=form)
 
 if __name__ == "__main__":
     app.debug =True

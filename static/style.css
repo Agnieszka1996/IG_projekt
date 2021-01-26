@@ -2,10 +2,11 @@ body {
     font-family: 'Permanent Marker', cursive;
     /*background-image: url("./assets/tlo.jpg");*/
 }
-h1 {
+.sylaby_napis {
     text-align: center;
     font-weight: bold;
     font-size: 70px;
+    line-height: 200px;
     margin: 20px auto;
     background-color: white;
     color: black;
@@ -52,6 +53,7 @@ h1 {
 .stos {
     margin: 2rem;
     text-align: right;
+    float: right;
 }
 .stos img {
     width: 110px;
