@@ -1,0 +1,65 @@
+body {
+    font-family: 'Permanent Marker', cursive;
+    /*background-image: url("./assets/tlo.jpg");*/
+}
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+    margin: 20px auto;
+    background-color: white;
+    color: black;
+}
+.karta {
+    width: 70px;
+    height: 100px;
+    border: 1px solid #000000;
+    margin: 0  10px;
+    list-style-type: none;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+.karta:hover {
+    transform: scale(1.25);
+}
+.pole_gracza {
+    background-color: black;
+    padding: 20px;
+}
+.karty_gracza {
+    display: flex;
+    justify-content: center;
+}
+.karty_napis {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.wartownik {
+    width: 110px;
+    height: 150px;
+    border: 1px solid #000000;
+    margin: 20px auto;
+    list-style-type: none;
+    background-color: white;
+    text-transform: capitalize;
+    font-weight: bold;
+    text-align: center;
+}
+.stos {
+    margin: 2rem;
+    text-align: right;
+}
+.stos img {
+    width: 110px;
+}
+.stos img:hover {
+    transform: scale(1.2);
+}
+a {
+    text-decoration: none;
+    color: black;
+}

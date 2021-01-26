@@ -6,4 +6,4 @@ class WybierzKarte(FlaskForm):
     """wybor karty """
 
     karta = StringField("Karta")
-    potwierdz = SubmitField("potweirdz wybor")
+    potwierdz = SubmitField("Potwierdź wybór")

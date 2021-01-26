@@ -1,5 +1,5 @@
 import random
-
+import csv
 
 class Game:
     # jakie atrybuty przyjmuje klasa
@@ -46,7 +46,16 @@ class Game:
             return False
 
     def sprawdzanie_slowa_sjp(self, wybrana_karta):
-        pass
+        with open('slownik.csv', newline='') as csv_file:
+            reader = csv.reader(csv_file, delimiter=',')
+            slowa = list(reader)
+
+        sprawdzane_slowo = self.wartownik + wybrana_karta
+        if sprawdzane_slowo in slowa:
+            return True
+        else:
+            return False
+
 
 
 
@@ -57,7 +66,7 @@ class Game:
         if sylaba:
             wybrana_karta = self.gracze[self.turn].wyloz_karte(
                 sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
-            if self.sprawdz_poprawnosc_slowa(wybrana_karta):
+            if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
                 self.gracze[self.turn].odrzuc_karte(wybrana_karta)
             else:
