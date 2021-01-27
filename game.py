@@ -1,5 +1,5 @@
 import random
-import csv
+from slownik import slownik_
 
 class Game:
     # jakie atrybuty przyjmuje klasa
@@ -15,6 +15,8 @@ class Game:
         self.wartownik = ''
         self.gracze = []
         self.koniec_gry = None
+        self.slownik = slownik_
+        self.imiona_graczy = ['Agnieszka', 'Paweł']
 
     def __str__(self):
         return f" {self.karty}"
@@ -46,17 +48,12 @@ class Game:
             return False
 
     def sprawdzanie_slowa_sjp(self, wybrana_karta):
-        with open('slownik.csv', newline='') as csv_file:
-            reader = csv.reader(csv_file, delimiter=',')
-            slowa = list(reader)
-
         sprawdzane_slowo = self.wartownik + wybrana_karta
-        if sprawdzane_slowo in slowa:
+        print(sprawdzane_slowo)
+        if sprawdzane_slowo in self.slownik:
             return True
         else:
             return False
-
-
 
 
     def ruch_gracza(self, sylaba=None):
@@ -80,7 +77,32 @@ class Game:
         self.turn = (self.turn + 1) % 2
 
     def ruch_cpu(self):
-        pass
+        print(self.gracze)
+        print(self.gracze[self.turn].karty_gracza)
+        karty_gracza = self.gracze[self.turn].karty_gracza[:]
+        karty_gracza.append('pass')
+        print(karty_gracza)
+        losuj = random.choice(karty_gracza)
+        if losuj == 'pass':
+            sylaba = None
+        else:
+            sylaba = losuj
+
+        print(self.gracze)
+        print(self.gracze[self.turn].karty_gracza)
+        # sylaba = input('wybierz karte ktora chcesz zagrac')
+        if sylaba:
+            wybrana_karta = self.gracze[self.turn].wyloz_karte(
+                sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
+            if self.sprawdzanie_slowa_sjp(wybrana_karta):
+                self.wartownik = wybrana_karta
+                self.gracze[self.turn].odrzuc_karte(wybrana_karta)
+            else:
+                self.gracze[self.turn].pobierz_karte(self.karty[-1])
+                self.karty.pop()
+        else:
+            self.gracze[self.turn].pobierz_karte(self.karty[-1])
+            self.karty.pop()
 
     def rozdaj_karty(self):
         for _ in range(2):
@@ -99,11 +121,6 @@ class Game:
 
 
 class Player:
-    id = 0
-
-    # def __init__(self, id):
-    #     self.id = id
-
     def __init__(self, rozdane_karty):
         self.karty_gracza = rozdane_karty
 
