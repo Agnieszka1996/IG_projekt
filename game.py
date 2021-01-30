@@ -13,10 +13,15 @@ class Game:
         self.karty_gracza = 6
         self.turn = 1
         self.wartownik = ''
+        self.wartownik_przed_ruchem = ''
         self.gracze = []
         self.koniec_gry = None
         self.slownik = slownik_
         self.imiona_graczy = ['Agnieszka', 'Paweł']
+        self.tryb_gry = 'gracz'
+
+    def wybierz_tryb_gry(self, value):
+        self.tryb_gry = value
 
     def __str__(self):
         return f" {self.karty}"
@@ -26,19 +31,23 @@ class Game:
         self.wartownik = self.karty[-1]
         self.karty.pop()
         self.lista_graczy = self.rozdaj_karty()
+        self.wartownik_przed_ruchem = self.wartownik
 
-    def start_gry(self, sylaba, tryb_gry='cpu'):
-        self.ruch(sylaba)
+    def start_gry(self, sylaba=None, tryb_gry='gracz'):
+        self.ruch(sylaba, tryb_gry)
         if self.czy_zakonczyc_gre():
             return True
         self.zmiana_gracza()
 
 
-    def ruch(self, sylaba):
-        if self.turn == 0:
-            # self.ruch_cpu() # losowe ruchy z tych kart co ma w rece
-            self.ruch_gracza(sylaba)
-        elif self.turn == 1:
+    def ruch(self, sylaba=None,  tryb_gry='gracz'):
+        if tryb_gry != 'gracz':
+            if self.turn == 0:
+                self.ruch_cpu() # losowe ruchy z tych kart co ma w rece
+        else:
+            if self.turn == 0:
+                self.ruch_gracza(sylaba)
+        if self.turn == 1:
             self.ruch_gracza(sylaba)
 
     def sprawdz_poprawnosc_slowa(self, wybrana_karta):
@@ -51,6 +60,7 @@ class Game:
         sprawdzane_slowo = self.wartownik + wybrana_karta
         print(sprawdzane_slowo)
         if sprawdzane_slowo in self.slownik:
+            self.dobre_slowo = sprawdzane_slowo
             return True
         else:
             return False
@@ -63,15 +73,14 @@ class Game:
         if sylaba:
             wybrana_karta = self.gracze[self.turn].wyloz_karte(
                 sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
+            self.wartownik_przed_ruchem = self.wartownik
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
                 self.gracze[self.turn].odrzuc_karte(wybrana_karta)
             else:
-                self.gracze[self.turn].pobierz_karte(self.karty[-1])
-                self.karty.pop()
+                self.wyciagnij_karte()
         else:
-            self.gracze[self.turn].pobierz_karte(self.karty[-1])
-            self.karty.pop()
+            self.wyciagnij_karte()
 
     def zmiana_gracza(self):
         self.turn = (self.turn + 1) % 2
@@ -94,15 +103,14 @@ class Game:
         if sylaba:
             wybrana_karta = self.gracze[self.turn].wyloz_karte(
                 sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
+            self.wartownik_przed_ruchem = self.wartownik
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
                 self.gracze[self.turn].odrzuc_karte(wybrana_karta)
             else:
-                self.gracze[self.turn].pobierz_karte(self.karty[-1])
-                self.karty.pop()
+                self.wyciagnij_karte()
         else:
-            self.gracze[self.turn].pobierz_karte(self.karty[-1])
-            self.karty.pop()
+            self.wyciagnij_karte()
 
     def rozdaj_karty(self):
         for _ in range(2):
@@ -119,6 +127,12 @@ class Game:
             self.koniec_gry = self.turn
             return True
 
+    def wyciagnij_karte(self):
+        try:
+            self.gracze[self.turn].pobierz_karte(self.karty[-1])
+            self.karty.pop()
+        except:
+            pass
 
 class Player:
     def __init__(self, rozdane_karty):

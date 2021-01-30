@@ -31,6 +31,12 @@
     {% endfor %}
 </div>
 
+<p class="karty_napis"> Karty CPU </p>
+{% if tryb_gry=='cpu' %}
+    {% for karta in karty_gracza[0] %}
+        <li class="karta_cpu"></li>
+    {% endfor %}
+{% endif %}
 
 
 <div class="">
@@ -39,9 +45,14 @@
 
 <div class="pole_gracza">
 <p class="karty_napis"> {{ gracze[ruch_gracza] }} </p>
+
+    {% if ulozone_slowo %}
+        <div class="ulozone_slowo">{{ ulozone_slowo }}</div>
+    {% endif %}
+
     <div class="karty_gracza">
     {% for karta in karty_gracza[ruch_gracza] %}
-        <li class="karta"><a href="{{ url_for('wyloz_karte', karta=karta) }}">{{ karta }}</a></li>
+        <a href="{{ url_for('wyloz_karte', karta=karta, tryb_gry=tryb_gry) }}"><li class="karta">{{ karta }}</li></a>
     {% endfor %}
     </div>
 </div>
