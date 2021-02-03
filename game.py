@@ -5,11 +5,12 @@ class Game:
     # jakie atrybuty przyjmuje klasa
     # i jakie metody sa mozliwe
 
-    def __init__(self):
+    def __init__(self, gracz_1, gracz_2='komputer', tryb_gry='gracze'):
         self.karty = ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza',
                       'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy',
-                      'by', 'ry', 'da', 'to', 'ra', 'fu', 'dy', 'chy', 'ru', 'ku', 'wa', 'dy', 'ta', 'ny', 'po', 'ła',
+                      'ry', 'da', 'to', 'ra', 'fu', 'dy', 'chy', 'ru', 'ku', 'wa', 'ta', 'ny', 'po', 'ła',
                       'do', 'ba', 'no', 'sa']
+        # self.karty=  ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza']
         self.karty_gracza = 6
         self.turn = 1
         self.wartownik = ''
@@ -17,8 +18,8 @@ class Game:
         self.gracze = []
         self.koniec_gry = None
         self.slownik = slownik_
-        self.imiona_graczy = ['Agnieszka', 'Paweł']
-        self.tryb_gry = 'gracz'
+        self.imiona_graczy = [gracz_2, gracz_1]
+        self.tryb_gry = tryb_gry
 
     def wybierz_tryb_gry(self, value):
         self.tryb_gry = value
@@ -77,6 +78,7 @@ class Game:
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
                 self.gracze[self.turn].odrzuc_karte(wybrana_karta)
+                self.gracze[self.turn].punkty += 1
             else:
                 self.wyciagnij_karte()
         else:
@@ -107,6 +109,7 @@ class Game:
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
                 self.gracze[self.turn].odrzuc_karte(wybrana_karta)
+                self.gracze[self.turn].punkty += 1
             else:
                 self.wyciagnij_karte()
         else:
@@ -123,9 +126,13 @@ class Game:
             self.gracze.append(gracz)
 
     def czy_zakonczyc_gre(self):
-        if len(self.gracze[self.turn].karty_gracza) == 0:
-            self.koniec_gry = self.turn
-            return True
+        print('liczba kart:', len(self.gracze[0].karty_gracza))
+        print('liczba kart:', len(self.gracze[1].karty_gracza))
+
+        for player_number in range(2):
+            if len(self.gracze[player_number].karty_gracza) == 0:
+                self.koniec_gry = True
+                return True
 
     def wyciagnij_karte(self):
         try:
@@ -137,6 +144,7 @@ class Game:
 class Player:
     def __init__(self, rozdane_karty):
         self.karty_gracza = rozdane_karty
+        self.punkty = 0
 
     def odrzuc_karte(self, wybrana_karta):
         self.karty_gracza.remove(wybrana_karta)
@@ -151,4 +159,4 @@ class Player:
         self.karty_gracza.append(karta)
 
 # gra = Game()
-# gra.start_gry()
+# gra.karty

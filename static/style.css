@@ -1,6 +1,5 @@
 body {
     font-family: 'Permanent Marker', cursive;
-    /*background-image: url("./assets/tlo.jpg");*/
 }
 .sylaby_napis {
     text-align: center;
@@ -15,7 +14,7 @@ body {
     width: 70px;
     height: 100px;
     border: 1px solid #000000;
-    margin: 0  10px;
+    margin: 1rem 10px;
     list-style-type: none;
     background-color: white;
     text-transform: uppercase;
@@ -26,9 +25,9 @@ body {
     width: 70px;
     height: 100px;
     border: 1px solid #000000;
-    margin: 0  10px;
+    margin: 1rem 10px;
     list-style-type: none;
-    background-color: black;
+    background-color: white;
 }
 .karta:hover {
     transform: scale(1.25);
@@ -40,6 +39,7 @@ body {
 .karty_gracza {
     display: flex;
     justify-content: center;
+    overflow: overlay;
 }
 .karty_napis {
     color: white;
@@ -57,17 +57,25 @@ body {
     text-transform: capitalize;
     font-weight: bold;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 .stos {
+    position: absolute;
+    z-index: 2;
     margin: 2rem;
     text-align: right;
-    float: right;
+    right: 0;
+    top: 0;
 }
 .stos img {
     width: 110px;
 }
 .stos img:hover {
     transform: scale(1.2);
+}
+.pobierz-ze-stosu {
+    margin-top: .5rem;
 }
 a {
     text-decoration: none;
@@ -81,6 +89,18 @@ a {
     text-align: center;
     margin: 2rem auto;
     width: 230px;
+}
+.przerwij {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 2rem;
+    width: 230px;
+    float: left;
+    position: absolute;
+    z-index: 2;
 }
 .wstep_napis, .wstep_napis a, .wstep_napis a:hover, .wstep_napis a:active, .wstep_napis a:visited {
     margin: 1rem auto;
@@ -102,7 +122,64 @@ a, a:hover, a:active, a:visited {
 }
 .ulozone_slowo {
     color: white;
+    background-image: url("./assets/bum.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 2rem;
+    padding: 20px;
+    position: absolute;
+    z-index: 2;
+    height: 170px;
+    width: 200px;
 }
-/*.card {*/
-/*    border: none !important;*/
-/*}*/
+.slowo_w_chmurce {
+    position: relative;
+    top: 40%;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.formularz_naglowek {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.div p {
+    font-size: 24px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.punkty {
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+    float: right;
+    color: white;
+    margin-left: 1rem;
+    position: absolute;
+    right: 1rem;
+}
+.liczba_punktow {
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+}
+.wygrany_chmura {
+    background-image: url("./assets/bum.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 20px;
+    margin: 5rem auto;
+}
+.wygrany_napis {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+.przegrany_napis {
+    font-size: 40px;
+    color: black;
+    text-align: center;
+}
