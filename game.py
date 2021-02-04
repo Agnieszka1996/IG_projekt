@@ -6,11 +6,6 @@ class Game:
     def __init__(self, gracz_1, gracz_2='komputer', tryb_gry='gracze'):
         self.karty = ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza',
                       'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy', 'ry', 'da', 'to']
-        # self.karty = ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza',
-        #               'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy',
-        #               'ry', 'da', 'to', 'ra', 'fu', 'dy', 'chy', 'ru', 'ku', 'wa', 'ta', 'ny', 'po', 'ła',
-        #               'do', 'ba', 'no', 'sa']
-        # self.karty=  ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza']
         self.karty_gracza = 6
         self.turn = 1
         self.wartownik = ''
@@ -23,9 +18,6 @@ class Game:
 
     def wybierz_tryb_gry(self, value):
         self.tryb_gry = value
-
-    # def __str__(self):
-    #     return f" {self.karty}"
 
     def init_game(self, tryb_gry='cpu'):
         random.shuffle(self.karty)
@@ -44,7 +36,7 @@ class Game:
     def ruch(self, sylaba=None,  tryb_gry='gracz'):
         if tryb_gry != 'gracz':
             if self.turn == 0:
-                self.ruch_cpu() # losowe ruchy z tych kart co ma w rece
+                self.ruch_cpu()
         else:
             if self.turn == 0:
                 self.ruch_gracza(sylaba)
@@ -70,10 +62,9 @@ class Game:
     def ruch_gracza(self, sylaba=None):
         print(self.gracze)
         print(self.gracze[self.turn].karty_gracza)
-        # sylaba = input('wybierz karte ktora chcesz zagrac')
         if sylaba:
             wybrana_karta = self.gracze[self.turn].wyloz_karte(
-                sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
+                sylaba)
             self.wartownik_przed_ruchem = self.wartownik
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
@@ -101,10 +92,9 @@ class Game:
 
         print(self.gracze)
         print(self.gracze[self.turn].karty_gracza)
-        # sylaba = input('wybierz karte ktora chcesz zagrac')
         if sylaba:
             wybrana_karta = self.gracze[self.turn].wyloz_karte(
-                sylaba)  # id albo pelna wartosc zwraca(return) wartosc karty np 'ba'
+                sylaba)
             self.wartownik_przed_ruchem = self.wartownik
             if self.sprawdzanie_slowa_sjp(wybrana_karta):
                 self.wartownik = wybrana_karta
@@ -157,6 +147,3 @@ class Player:
 
     def pobierz_karte(self, karta):
         self.karty_gracza.append(karta)
-
-# gra = Game()
-# gra.karty

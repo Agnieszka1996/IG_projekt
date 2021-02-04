@@ -145,6 +145,8 @@ a, a:hover, a:active, a:visited {
     color: white;
     border: none !important;
     font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
 }
 .ulozone_slowo {
     color: white;
@@ -214,7 +216,7 @@ font-size: 20px;
     font-weight: bold;
     position: relative;
     top: 45%;
-    right: -50%;
+    right: -49%;
     transform: translate(-50%,-50%);
     z-index: 2;
 }

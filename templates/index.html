@@ -16,23 +16,24 @@
     <div class="wstep_napis"><a class="wstep_napis" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Poznaj zasady</a></div>
     <div class="collapse" id="collapseExample">
       <div class="zasady">
-          1.	Każdy z graczy dostaje na wstępie po 6 kart.</br>
-        2.	Przed wszystkimi graczami znajduje się stos zakrytych kart z sylabami, a także jedna karta z odkrytą sylabą.</br>
-        3.	Każdy z graczy w swojej kolejce:</br>
-          <ul>
-            <li>wybiera ze swoich kart kartę z sylabą, z którą można ułożyć sensowne słowo wraz z sylabą znajdującą się na karcie na środku (ważna jest kolejność: sylaba na środku jest pierwszym członem słowa; karta wykładana przez gracza ma być drugim członem), a następnie kładzie swoją kartę na sylabie znajdującej się na środku;</li>
-            <li>gdy w swoich kartach nie może znaleźć żadnej sylaby tworzącej słowo wraz z sylabą na środku, dobiera kolejną kartę ze stosu kart zakrytych;</li>
-            <li>po wykonaniu jednego z dwóch powyższych ruchów kończy się kolejka gracza.</li>
-          </ul>
-        4.	Wygrywa gracz, który najszybciej pozbędzie się wszystkich swoich kart.</br>
+          <ol>
+            <li>Każdy z graczy dostaje na wstępie po 6 kart.</li>
+            <li>Przed wszystkimi graczami znajduje się stos zakrytych kart z sylabami, a także jedna karta z odkrytą sylabą.</li>
+            <li>Każdy z graczy w swojej kolejce:</li>
+                <ul>
+                    <li>Wybiera ze swoich kart kartę z sylabą, z którą można ułożyć sensowne słowo wraz z sylabą znajdującą się na karcie na środku. Ważna jest kolejność: sylaba na środku jest pierwszym członem słowa; karta wykładana przez gracza ma być drugim członem. Następnie gracz kładzie swoją kartę na sylabie znajdującej się na środku.</li>
+                    <li>Gdy w swoich kartach nie może znaleźć żadnej sylaby tworzącej słowo wraz z sylabą na środku, dobiera kolejną kartę ze stosu kart zakrytych.</li>
+                    <li>Po wykonaniu jednego z dwóch powyższych ruchów kończy się kolejka gracza.</li>
+                </ul>
+            <li>Wygrywa gracz, który najszybciej pozbędzie się wszystkich swoich kart; w każdej chwili można także grę przerwać, wówczas wygrywa gracz z wiekszą liczbą punktów (ułożonych słów).</li>
+          </ol>
+          Można układać słowa należące do wszystkich części mowy; we wszystkich formach fleksyjnych i gramatycznych; także słowa kolokwialne. Ułożone słowa są w grze akceptowane lub nie zgodnie z <a href="http://sjp.pl" target="_blank" style="color: white!important;">sjp.pl</a>.
       </div>
     </div>
 
     <p class="wstep_napis">Wybierz tryb gry:</p>
     <a href="{{ url_for('wypelnij_formularz', tryb_gry='cpu') }}"><div class="tryb">z komputerem</div></a>
     <a href="{{ url_for('wypelnij_formularz', tryb_gry='gracze') }}"><div class="tryb">z innym graczem</div></a>
-{#    <a href="{{ url_for('start_gry', tryb_gry='cpu') }}"><div class="tryb">z komputerem</div></a>#}
-{#    <a href="{{ url_for('start_gry', tryb_gry='gracz') }}"><div class="tryb">z innym graczem</div></a>#}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>

@@ -15,11 +15,8 @@
 
 <a href="{{url_for("zakoncz_gre")}}"><div class="przerwij">Przerwij grę</div></a>
 
-{#<div class="sylaby_napis">SY-LA-BY</div>#}
-
 
 <div class="stos">
-{#    <div>{{tryb_gry}}</div>#}
     {% if licza_kart_na_stosie != 0 %}
     <a href="{{ url_for('pobierz_karte', tryb_gry=tryb_gry) }}">
         {% endif %}
@@ -43,7 +40,6 @@
 {% if tryb_gry=='cpu' %}
     <div class="pole_cpu">
         <p class="karty_napis"> Komputer: {{ punkty_cpu }}</p>
-{#        <p class="punkty">Punkty:</br><span class="liczba_punktow">{{ punkty_cpu }}</span></p>#}
         <div class="karty_gracza">
             {% for karta in karty_gracza[0] %}
                 <li class="karta_cpu"></li>
@@ -52,21 +48,18 @@
     </div>
 {% endif %}
 
-{#<div class="d-flex row">#}
 
-    {% if ulozone_slowo %}
-        <div class="ulozone_slowo"><p class="slowo_w_chmurce">{{ ulozone_slowo }}<p></p></div>
-    {% endif %}
+{% if ulozone_slowo %}
+    <div class="ulozone_slowo"><p class="slowo_w_chmurce">{{ ulozone_slowo }}<p></p></div>
+{% endif %}
 
-    <div>
-        <div class="wartownik">{{ wartownik }}</div>
-    </div>
+<div>
+    <div class="wartownik">{{ wartownik }}</div>
+</div>
 
-{#</div>#}
 
 <div class="pole_gracza">
 <p class="karty_napis"> {{ gracze[ruch_gracza] }}: {{ punkty }}</p>
-{#    <p class="punkty">Punkty:</br><span class="liczba_punktow">{{ punkty }}</span></p>#}
 
     <div class="karty_gracza">
     {% for karta in karty_gracza[ruch_gracza] %}
@@ -75,30 +68,12 @@
     </div>
 </div>
 
-{#<form method="POST" action="">#}
-{#    {{ form.hidden_tag() }}#}
-{#    <fieldset class="form-group">#}
-{#        <div class="form-group">#}
-{#            {{ form.karta(class="form-control form-control-lg is-invalid") }}#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            {{ form.potwierdz(class="btn btn-outline-info") }}#}
-{#        </div>#}
-{#    </fieldset>#}
-{##}
-{#</form>#}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"
         integrity="sha512-+l9L4lMTFNy3dEglQpprf7jQBhQsQ3/WvOnjaN/+/L4i0jOstgScV0q2TjfvRF4V+ZePMDuZYIQtg5T4MKr+MQ=="
         crossorigin="anonymous"></script>
 <!-- Custom SocketIO JS -->
 <script src="{{ url_for('static', filename='scripts/socketio2.js') }}"></script>
-<!--<script type="text/javascript" charset="utf-8">-->
-<!--    var socket = io();-->
-<!--    socket.on('connect', function() {-->
-<!--        socket.emit('my event', {data: 'I\'m connected!'});-->
-<!--    });-->
-<!--</script>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
