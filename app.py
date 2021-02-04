@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from form import *
-from game import Game, Player
+from game import *
+# from game import Game, Player
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -128,7 +129,8 @@ def wyloz_karte(tryb_gry, karta):
     global gra
     print(gra.turn)
     if karta not in gra.gracze[gra.turn].karty_gracza:
-        flash(f"{gra.imiona_graczy[gra.turn]}, W Twoich kartach nie ma takiej sylaby i musiales dobrac karte za to!")
+        flash('W Twoich kartach nie ma takiej sylaby i musiales dobrac karte za to!')
+        # flash(f'{gra.imiona_graczy[gra.turn]}, w Twoich kartach nie ma takiej sylaby – za karę dobierasz kartę!')
     try:
         gra.ruch_gracza(karta)
         gra.czy_zakonczyc_gre()
@@ -175,7 +177,7 @@ def zakoncz_gre():
 
 if __name__ == "__main__":
     app.debug =True
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5121, debug=True)
 
 
 

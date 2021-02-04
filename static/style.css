@@ -1,5 +1,5 @@
 body {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 .sylaby_napis {
     text-align: center;
@@ -9,6 +9,7 @@ body {
     margin: 20px auto;
     background-color: white;
     color: black;
+    font-family: 'Permanent Marker', cursive;
 }
 .karta {
     width: 70px;
@@ -20,19 +21,34 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
+    font-family: 'Permanent Marker', cursive;
+}
+.flash {
+    color: red;
+    margin: 20px;
+    font-weight: bold;
+    font-size: 20px;
 }
 .karta_cpu {
-    width: 70px;
-    height: 100px;
+    width: 35px;
+    height: 50px;
     border: 1px solid #000000;
     margin: 1rem 10px;
     list-style-type: none;
     background-color: white;
+    font-family: 'Permanent Marker', cursive;
 }
 .karta:hover {
     transform: scale(1.25);
 }
 .pole_gracza {
+    background-color: black;
+    padding: 20px;
+    margin-top: 3rem;
+}
+.pole_cpu {
+    width: 800px;
+    margin: auto;
     background-color: black;
     padding: 20px;
 }
@@ -43,15 +59,16 @@ body {
 }
 .karty_napis {
     color: white;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 .wartownik {
     width: 110px;
     height: 150px;
     border: 1px solid #000000;
-    margin: 20px auto;
+    margin: 3rem auto;
     list-style-type: none;
     background-color: white;
     text-transform: capitalize;
@@ -59,6 +76,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
+    font-family: 'Permanent Marker', cursive;
 }
 .stos {
     position: absolute;
@@ -76,6 +94,8 @@ body {
 }
 .pobierz-ze-stosu {
     margin-top: .5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 a {
     text-decoration: none;
@@ -89,6 +109,8 @@ a {
     text-align: center;
     margin: 2rem auto;
     width: 230px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 .przerwij {
     background-color: black;
@@ -96,11 +118,13 @@ a {
     padding: 10px;
     border-radius: 50px;
     text-align: center;
-    margin: 2rem;
+    margin: 4rem;
     width: 230px;
     float: left;
     position: absolute;
     z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 .wstep_napis, .wstep_napis a, .wstep_napis a:hover, .wstep_napis a:active, .wstep_napis a:visited {
     margin: 1rem auto;
@@ -108,6 +132,8 @@ a {
     text-align: center;
     text-decoration: none;
     color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 a, a:hover, a:active, a:visited {
     text-decoration: none !important;
@@ -131,6 +157,7 @@ a, a:hover, a:active, a:visited {
     z-index: 2;
     height: 170px;
     width: 200px;
+    top: 8rem;
 }
 .slowo_w_chmurce {
     position: relative;
@@ -142,9 +169,12 @@ a, a:hover, a:active, a:visited {
     font-family: 'Montserrat', sans-serif;
 }
 .formularz_naglowek {
-    font-size: 30px;
+    font-size: 36px;
     text-align: center;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    margin: 4rem auto;
+    font-weight: bold;
 }
 .div p {
     font-size: 24px;
@@ -167,19 +197,41 @@ a, a:hover, a:active, a:visited {
     font-family: 'Montserrat', sans-serif;
 }
 .wygrany_chmura {
-    background-image: url("./assets/bum.png");
+    background-image: url(./assets/bum.png);
     background-repeat: no-repeat;
     background-size: contain;
     padding: 20px;
-    margin: 5rem auto;
+    margin: auto;
+    height: 600px;
+    background-position-x: center;
 }
-.wygrany_napis {
-    font-size: 50px;
+.wyniki {
+font-size: 20px;
+    line-height: 17px;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 45%;
+    right: -50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.form {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    background-color: black;
+    padding: 4rem;
     color: white;
     text-align: center;
 }
-.przegrany_napis {
-    font-size: 40px;
-    color: black;
-    text-align: center;
+.form-control {
+    width: 50% !important;
+    margin: 1rem auto;
+}
+fieldset.form-group {
+    margin: auto;
 }

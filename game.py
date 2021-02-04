@@ -1,15 +1,15 @@
 import random
-from slownik import slownik_
+from slownik_new import slownik__
 
 class Game:
-    # jakie atrybuty przyjmuje klasa
-    # i jakie metody sa mozliwe
 
     def __init__(self, gracz_1, gracz_2='komputer', tryb_gry='gracze'):
         self.karty = ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza',
-                      'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy',
-                      'ry', 'da', 'to', 'ra', 'fu', 'dy', 'chy', 'ru', 'ku', 'wa', 'ta', 'ny', 'po', 'ła',
-                      'do', 'ba', 'no', 'sa']
+                      'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy', 'ry', 'da', 'to']
+        # self.karty = ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza',
+        #               'tka', 'mi', 'nie', 'ni', 'cha', 'wo', 'la', 'ka', 'lu', 'ga', 'mu', 'sy', 'pa', 'ty', 'wy',
+        #               'ry', 'da', 'to', 'ra', 'fu', 'dy', 'chy', 'ru', 'ku', 'wa', 'ta', 'ny', 'po', 'ła',
+        #               'do', 'ba', 'no', 'sa']
         # self.karty=  ['by', 'ko', 'pu', 'le', 'na', 'py', 'ma', 'gi', 'ki', 'sza', 'li', 'fa', 'my', 'że', 'cza']
         self.karty_gracza = 6
         self.turn = 1
@@ -17,15 +17,15 @@ class Game:
         self.wartownik_przed_ruchem = ''
         self.gracze = []
         self.koniec_gry = None
-        self.slownik = slownik_
+        self.slownik = slownik__
         self.imiona_graczy = [gracz_2, gracz_1]
         self.tryb_gry = tryb_gry
 
     def wybierz_tryb_gry(self, value):
         self.tryb_gry = value
 
-    def __str__(self):
-        return f" {self.karty}"
+    # def __str__(self):
+    #     return f" {self.karty}"
 
     def init_game(self, tryb_gry='cpu'):
         random.shuffle(self.karty)

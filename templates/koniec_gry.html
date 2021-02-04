@@ -15,29 +15,21 @@
 {% if koniec_gry %}
 
     <div class="wygrany_chmura">
-        <p class="wygrany_napis">Wygrał gracz {{ wygrany }}!</p>
-        <p>Liczba punktów: {{ punkty_wygranego }}</p>
-    </div>
-
-    <div class="przegrany">
-        <p class="przegrany_napis">Gracz {{ przegrany }} zdobył {{ punkty_przegranego }} punktów.</p>
+        <p class="wyniki">Wygrał gracz {{ wygrany }}</p>
+        <p class="wyniki">z liczbą punktów {{ punkty_wygranego }}.</p>
+        <p class="wyniki">Gracz {{ przegrany }} zdobył {{ punkty_przegranego }} punktów.</p>
     </div>
 
 {% else %}
 
-
     <div class="wygrany_chmura">
-        <p class="wygrany_napis"> {{ wygrany }}!</p>
-        <p>Liczba punktów: {{ punkty_wygranego }}</p>
-    </div>
-
-    <div class="przegrany">
-        <p class="przegrany_napis">{{ przegrany }} zdobył {{ punkty_przegranego }} punktów.</p>
+        <p class="wyniki"> Gracz {{ wygrany }} zdobył {{ punkty_wygranego }} punktów.</p>
+        <p class="wyniki">Gracz {{ przegrany }} zdobył {{ punkty_przegranego }} punktów.</p>
     </div>
 
 {% endif %}
 
-<a href="{{url_for("wybierz_tryb_gry")}}"><p>Rozpocznij nową grę</p></a>
+<a href="{{url_for("wybierz_tryb_gry")}}"><div class="tryb">Rozpocznij nową grę</div></a>
 
 </body>
 </html>

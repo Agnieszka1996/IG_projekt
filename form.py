@@ -12,11 +12,11 @@ class WybierzKarte(FlaskForm):
 class ImieGracza(FlaskForm):
     """ nadanie imion graczowi """
     gracz = StringField("Karta")
-    potwierdz_vs_cpu = SubmitField("Potwierdź wybór")
+    potwierdz_vs_cpu = SubmitField("Rozpocznij grę")
 
 
 class ImionaGraczy(FlaskForm):
     """nadanie imion gracza"""
     gracz_1 = StringField("Karta")
     gracz_2 = StringField("Karta")
-    potwierdz_vs_gracz = SubmitField("Potwierdź wybór")
+    potwierdz_vs_gracz = SubmitField("Rozpocznij grę")
